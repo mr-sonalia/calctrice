@@ -1,0 +1,72 @@
+@keyframes anim-dot {
+  // 7.14% {
+  // 	opacity: 1;
+  // 	color: #b10303;
+  // }
+  // 14.28% {
+  // 	opacity: 0;
+  // 	color: #fff;
+  // }
+  // 21.42% {
+  // 	opacity: 1;
+  // 	color: #fcda30;
+  // }
+  // 28.57% {
+  // 	opacity: 0;
+  // 	color: #fff;
+  // }
+  // 35.71% {
+  // 	opacity: 1;
+  // 	color: #3e599c;
+  // }
+  // 42.85% {
+  // 	opacity: 0;
+  // 	color: #fff;
+  // }
+  // 50% {
+  // 	opacity: 1;
+  // 	color: #2cba1d;
+  // }
+  // 57.14% {
+  // 	opacity: 0;
+  // 	color: #fff;
+  // }
+  // 64.28% {
+  // 	opacity: 1;
+  // 	color: #f76707;
+  // }
+  // 71.42% {
+  // 	opacity: 0;
+  // 	color: #fff;
+  // }
+  // 78.57% {
+  // 	opacity: 1;
+  // 	color: #970a5b;
+  // }
+  // 85.71% {
+  // 	opacity: 0;
+  // 	color: #fff;
+  // }
+  // 92.85% {
+  // 	opacity: 1;
+  // 	color: #495057;
+  // }
+  // 100% {
+  // 	opacity: 0;
+  // 	color: #b10303;
+  // }
+
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.pulse-dot {
+  animation: anim-dot 1.6s ease-in-out 0s infinite forwards;
+  color: #1c7ed6;
+}

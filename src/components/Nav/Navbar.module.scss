@@ -1,0 +1,52 @@
+@use "../../scss/typography";
+
+.navbar {
+  width: 100%;
+  padding: 1rem 2.4rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // background-color: green;
+}
+
+.nav {
+  &-list {
+    list-style: none;
+
+    display: flex;
+    gap: 2rem;
+
+    padding-left: 0rem;
+  }
+  &-item a {
+    transition: all 0.2s ease;
+  }
+
+  &-item:nth-child(1) a:hover {
+    color: #b10303;
+    text-decoration: none;
+  }
+  &-item:nth-child(2) a:hover {
+    color: #fcda30;
+    text-decoration: none;
+  }
+  &-item:nth-child(3) a:hover {
+    color: #3e599c;
+    text-decoration: none;
+  }
+  &-item:nth-child(4) a:hover {
+    color: #2cba1d;
+    text-decoration: none;
+  }
+
+  &-link {
+    @extend %nav-link;
+  }
+}
+
+.search-modal {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  gap: 1rem;
+}
