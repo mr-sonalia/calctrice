@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { FormEvent, Fragment, useState, useRef, FC } from "react";
 import { Link } from "react-router-dom";
-import { Tooltip, Button, Input, Modal, Text } from "@mantine/core";
+import { Tooltip, Button, Input, Modal } from "@mantine/core";
 
 import { useHotkeys } from "@mantine/hooks";
 import navItems from "./NavItems";
