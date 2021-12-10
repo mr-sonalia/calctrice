@@ -1,0 +1,15 @@
+.mantine-Tabs-tabLabel {
+  width: max-content;
+  word-break: keep-all;
+}
+
+.mantine-Tabs-tabsListWrapper {
+  position: fixed;
+}
+
+.mantine-Tabs-body {
+  margin-left: 11rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  flex: 100%;
+}

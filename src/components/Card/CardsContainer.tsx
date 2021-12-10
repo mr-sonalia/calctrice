@@ -9,7 +9,7 @@ const CardsContainer: FC = () => {
   const theme = useMantineTheme();
 
   const mappedCards = cards.map((card) => (
-    <Col span={4}>
+    <Col span={4} key={card.key}>
       <CustomCard {...card} />
     </Col>
   ));

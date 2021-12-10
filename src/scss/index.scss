@@ -1,6 +1,8 @@
-@use "utils";
+@use "mantine-overrides";
 @use "typography";
+@use "forms";
 @use "animations";
+@use "utils";
 *,
 *::before,
 *::after {
@@ -8,53 +10,48 @@
   box-sizing: border-box;
 }
 
+body {
+  height: 100vh;
+  overflow-x: hidden;
+}
+
 .headline {
   @extend %h1;
   cursor: default;
 
   &__colors:nth-child(1):hover {
-    // 1
     color: #b10303;
   }
   &__colors:nth-child(2):hover {
-    // 2
     color: #fcda30;
   }
   &__colors:nth-child(3):hover {
-    // 3
     color: #3e599c;
   }
   &__colors:nth-child(4):hover {
-    // 1
     color: #b10303;
   }
   &__colors:nth-child(5):hover {
-    // 4
     color: #2cba1d;
   }
   &__colors:nth-child(6):hover {
-    // 5
     color: #f76707;
   }
   &__colors:nth-child(7):hover {
-    // 6
     color: #970a5b;
   }
   &__colors:nth-child(8):hover {
-    // 1
     color: #b10303;
   }
   &__colors:nth-child(9):hover {
-    // 7
     color: #495057;
   }
 
   &__sub {
-    @extend %h2;
+    @extend %h3;
   }
 
   &__search {
-    @extend %h3;
+    @extend %h4;
   }
 }
-

@@ -14,9 +14,9 @@ const ChevronRight: FC<Icon> = (props) => {
       viewBox="0 0 24 24"
       aria-labelledby="chevronRightIconTitle"
       stroke={props.color}
-      stroke-width="2.4"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2.4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       fill="none"
       color="#2329D6"
     >

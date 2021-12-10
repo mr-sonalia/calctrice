@@ -18,6 +18,7 @@ const validateInput = (input: string): validation => {
 
   if (commaSeparatedNumbersRegex.test(input) && !hasAlphaRegex.test(input)) {
     values = input
+      .trim()
       .split(",")
       .map((value) => Number(value.trim()))
       .sort((a: number, b: number) => a - b);
@@ -28,12 +29,12 @@ const validateInput = (input: string): validation => {
   }
 };
 
-const formatOutput = (value: number): number => {
+const formatOutput = (value: number): string => {
   let [integer, decimal]: string[] = value.toString().split(".");
   const frac: number = 4;
-  const dec: string = decimal ? decimal.padEnd(frac, "0").slice(0, frac) : "".padEnd(frac, "0");
+  const dec: string = decimal ? decimal.padEnd(frac, "0").slice(0, frac) : "0";
 
-  return Number([integer, dec].join("."));
+  return [Intl.NumberFormat("en-IN").format(Number(integer)), dec].join(".");
 };
 
 export { commaSeparatedNumbersRegex, hasAlphaRegex, validateInput, formatOutput };

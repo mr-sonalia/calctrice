@@ -58,7 +58,7 @@ const Navbar: FC = () => {
         onClose={() => setModalOpen(false)}
         hideCloseButton
       >
-        <h3 className="headline__search mar-b-1">What are we looking for?</h3>
+        <h4 className="headline__search mar-b-1">What are we looking for?</h4>
         <form onSubmit={modalFormSubmitHandler} className={classes["search-modal"]}>
           <Input size="xl" placeholder="Good life, IG.." ref={searchQueryRef} onChange={searchQueryChangeHandler} />
           <Button type="submit" size="xl" color="blue" variant="light" disabled={isSubmitDisabled}>

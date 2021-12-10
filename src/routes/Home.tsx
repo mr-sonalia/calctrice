@@ -4,7 +4,7 @@ import CardsContainer from "../components/Card/CardsContainer";
 
 const Home: FC = () => {
   return (
-    <Container size="xl" fluid={true} className=" pad-t-4">
+    <Container size="xl" fluid={true} className=" pad-t-10">
       <Grid>
         <Col span={2}></Col>
         <Col span={8}>
@@ -21,11 +21,11 @@ const Home: FC = () => {
               <span className="headline__colors">E</span>
               <span className="pulse-dot">.</span>
             </h1>
-            <h2 className="headline__sub">
+            <h3 className="headline__sub">
               Making complex calculations easy,
               <br />
               for You!
-            </h2>
+            </h3>
           </div>
         </Col>
         <Col span={2}></Col>
