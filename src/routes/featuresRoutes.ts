@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { v4 as uuid } from "uuid";
-import { MeanMedianMode, Graphs } from "../models";
+import { MeanMedianMode, Charts } from "../models/models";
 
 class Feature {
   public id: string;
@@ -15,9 +15,8 @@ class Feature {
 
 const models = [
   new Feature("Mean, Median, Mode", MeanMedianMode),
-  new Feature("Standard Devation", Graphs),
-  new Feature("Charts", MeanMedianMode),
-  new Feature("Graphs", MeanMedianMode),
+  new Feature("Charts", Charts),
+  new Feature("Standard Devation", MeanMedianMode),
   new Feature("Units & Measurements", MeanMedianMode),
 ];
 

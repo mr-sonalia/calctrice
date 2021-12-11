@@ -1,6 +1,6 @@
 import { FC, useRef } from "react";
 import { Container, Tabs } from "@mantine/core";
-import models from "./featuresModel";
+import models from "./featuresRoutes";
 
 const Features: FC = () => {
   const tabs = models.map((feature) => (
@@ -12,7 +12,7 @@ const Features: FC = () => {
 
   return (
     <Container size="xl" fluid={true} className="pad-t-9">
-      <Tabs tabPadding="xl" orientation="vertical" grow ref={ref}>
+      <Tabs className="features__tab" tabPadding="xl" orientation="vertical" grow ref={ref}>
         {tabs}
       </Tabs>
     </Container>

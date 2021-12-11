@@ -3,11 +3,11 @@
   word-break: keep-all;
 }
 
-.mantine-Tabs-tabsListWrapper {
+.features__tab > .mantine-Tabs-tabsListWrapper {
   position: fixed;
 }
 
-.mantine-Tabs-body {
+.features__tab > .mantine-Tabs-body {
   margin-left: 11rem;
   // overflow-x: hidden;
   // overflow-y: auto;

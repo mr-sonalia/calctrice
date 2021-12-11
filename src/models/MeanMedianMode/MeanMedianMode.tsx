@@ -43,7 +43,6 @@ const MeanMedianMode: FC = () => {
         <Col span={6} sx={{ borderRight: `1px solid`, borderColor: theme.colors.gray[4], padding: "0px 40px" }}>
           <section className="feature__section mar-b-4">
             <form className="values__form" onSubmit={getResults}>
-              {/* <Input placeholder="1, 2, 3, 4, 5, 5, 4" size="md" ref={inputRef} /> */}
               <TextInput
                 required
                 label="Set of values"
