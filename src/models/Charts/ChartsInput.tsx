@@ -43,7 +43,7 @@ const ChartsInput: FC<Props> = ({ callback, setValues }) => {
         console.log(data);
         return;
       }
-      throw "error";
+      throw new Error("error");
     } catch (error) {
       setValues({ data: null, error: new Error("Oops! Seems like input value(s) is/are incorrect :(").message });
     }

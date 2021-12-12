@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, Fragment, useEffect, useState } from "react";
+import { FC, Fragment, useEffect, useState } from "react";
 import { Grid, Col, useMantineTheme, Select } from "@mantine/core";
 import { AreaChart as AChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import InvalidInput from "../../components/Errors/InvalidInput";
@@ -96,7 +96,6 @@ const AreaChart: FC = () => {
               fill={theme.colors.blue[length - 1]}
             />
           );
-          length--;
         }
       }
       setMappedDataKeys(tempMap);
