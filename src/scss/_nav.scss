@@ -1,4 +1,4 @@
-@use "../../scss/typography";
+@use "_typography";
 
 .navbar {
   width: 100%;
@@ -13,7 +13,8 @@
   left: 0;
   z-index: 99;
 
-  background-color: #fff;
+  background: hsla(0, 0%, 100%, 0.8);
+  backdrop-filter: saturate(180%) blur(5px);
 }
 
 .nav {
@@ -29,19 +30,23 @@
     transition: all 0.2s ease;
   }
 
-  &-item:nth-child(1) a:hover {
+  &-item:nth-child(1) a:hover,
+  &-item:nth-child(1) a.active {
     color: #b10303;
     text-decoration: none;
   }
-  &-item:nth-child(2) a:hover {
+  &-item:nth-child(2) a:hover,
+  &-item:nth-child(2) a.active {
     color: #fcda30;
     text-decoration: none;
   }
-  &-item:nth-child(3) a:hover {
+  &-item:nth-child(3) a:hover,
+  &-item:nth-child(3) a.active {
     color: #3e599c;
     text-decoration: none;
   }
-  &-item:nth-child(4) a:hover {
+  &-item:nth-child(4) a:hover,
+  &-item:nth-child(4) a.active {
     color: #2cba1d;
     text-decoration: none;
   }

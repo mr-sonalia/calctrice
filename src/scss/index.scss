@@ -1,8 +1,10 @@
 @use "mantine-overrides";
 @use "typography";
+@use "nav";
 @use "forms";
 @use "animations";
 @use "utils";
+
 *,
 *::before,
 *::after {
@@ -54,5 +56,11 @@ body {
 
   &__search {
     @extend %h4;
+  }
+}
+
+.feature {
+  &__headline {
+    @extend %h2;
   }
 }

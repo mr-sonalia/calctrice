@@ -7,11 +7,6 @@ interface Props {
   title: string;
 }
 
-// interface UsageColorMap {
-//   Basic: string;
-//   Intermediate: string;
-// }
-
 const CustomCard: FC<Props> = ({ usage, title }) => {
   const usageColorMap: any = {
     Basic: "green",

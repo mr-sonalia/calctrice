@@ -1,19 +1,18 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { FormEvent, Fragment, useState, useRef, FC } from "react";
 import { Link } from "react-router-dom";
+import { useHotkeys } from "@mantine/hooks";
 import { Tooltip, Button, Input, Modal } from "@mantine/core";
 
-import { useHotkeys } from "@mantine/hooks";
+import NavLink from "./NavLink";
 import navItems from "./NavItems";
 import Search from "../Icons/Search";
 import Logo from "../Icons/Logo";
-import classes from "./Navbar.module.scss";
 
 const Navbar: FC = () => {
   const [modalOpen, setModalOpen]: [boolean, Function] = useState(false);
   const [isSubmitDisabled, setSubmitDisabled]: [boolean, Function] = useState(true);
   const searchQueryRef = useRef<HTMLInputElement>(null);
-
   const searchQueryChangeHandler = () => {
     if (searchQueryRef.current!.value) setSubmitDisabled(false);
     else setSubmitDisabled(true);
@@ -28,21 +27,15 @@ const Navbar: FC = () => {
 
   useHotkeys([["ctrl+K", () => setModalOpen((prev: boolean) => !prev)]]);
 
-  const mappedNavItems = navItems.map((item) => (
-    <li className={classes["nav-item"]} key={item.id}>
-      <Link to={item.path} className={classes["nav-link"]}>
-        {item.text}
-      </Link>
-    </li>
-  ));
+  const mappedNavItems = navItems.map((item) => <NavLink key={item.id} path={item.path} text={item.text} />);
 
   return (
     <Fragment>
-      <nav className={`${classes.navbar}`}>
+      <nav className="navbar">
         <Link to="/" className="logo">
           <Logo />
         </Link>
-        <ul className={classes["nav-list"]}>{mappedNavItems}</ul>
+        <ul className="nav-list">{mappedNavItems}</ul>
         <Tooltip label="Crtl+K" withArrow>
           <Button size="md" color="blue" variant="light" onClick={() => setModalOpen(true)}>
             <Search color="#228be6" />
@@ -59,7 +52,7 @@ const Navbar: FC = () => {
         hideCloseButton
       >
         <h4 className="headline__search mar-b-1">What are we looking for?</h4>
-        <form onSubmit={modalFormSubmitHandler} className={classes["search-modal"]}>
+        <form onSubmit={modalFormSubmitHandler} className="search-modal">
           <Input size="xl" placeholder="Good life, IG.." ref={searchQueryRef} onChange={searchQueryChangeHandler} />
           <Button type="submit" size="xl" color="blue" variant="light" disabled={isSubmitDisabled}>
             <Search color="#228be6" />

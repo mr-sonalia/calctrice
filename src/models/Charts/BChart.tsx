@@ -1,7 +1,6 @@
 import { FC, Fragment, useEffect, useState } from "react";
-import { Col, Grid, Table, Tabs, Text, useMantineTheme } from "@mantine/core";
+import { Col, Grid, useMantineTheme } from "@mantine/core";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
-import { Prism } from "@mantine/prism";
 import InvalidInput from "../../components/Errors/InvalidInput";
 import ChartsInput from "./ChartsInput";
 
@@ -24,31 +23,13 @@ const initialData: Data = [
   },
 ];
 
-const sampleInput: string = `{
-  "name": "John Doe", 
-  "income": 1000,
-  "expenditure": 877
-},
-{
-  "name": "Max Miller", 
-  "income": -1200,
-  "expenditure": 800
-}
-`;
-
 const BChart: FC = () => {
   const theme = useMantineTheme();
   const [values, setValues] = useState<Values>({ data: initialData, error: null });
   const [mappedDataKeys, setMappedDataKeys] = useState<any[]>([]);
 
-  const getInputValue = (data: object[] | null, error: null | string): void => {
-    if (error && !data) setValues({ data, error });
-    else setValues({ data, error });
-  };
-
   useEffect(() => {
-    // console.log(values);
-    if (values.data) {
+    if (values.data && !values.error) {
       let length = Object.keys(values.data[0]).length;
       const tempMap: any[] = [];
 
@@ -60,7 +41,7 @@ const BChart: FC = () => {
       }
       setMappedDataKeys(tempMap);
     }
-  }, [theme.colors.blue, values.data]);
+  }, [theme.colors.blue, values]);
 
   return (
     <Fragment>
@@ -89,40 +70,7 @@ const BChart: FC = () => {
           )}
         </Col>
         <Col span={4}>
-          <Tabs tabPadding="md" grow>
-            <Tabs.Tab label="How to use">
-              <Text size="lg" weight={600} className="feature__instruction">
-                Input Format
-              </Text>
-              <Prism language="javascript" copyLabel="Copy Sample">
-                {sampleInput}
-              </Prism>
-              <Table striped>
-                <thead>
-                  <tr>
-                    <th rowSpan={2}>Prop</th>
-                    <th rowSpan={2}>Value</th>
-                    <th rowSpan={2}>Required ?</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>"name"</td>
-                    <td>"John Doe"</td>
-                    <td>true</td>
-                  </tr>
-                  <tr>
-                    <td>"field"</td>
-                    <td>Number</td>
-                    <td>Atleast 1</td>
-                  </tr>
-                </tbody>
-              </Table>
-            </Tabs.Tab>
-            <Tabs.Tab label="Chart Data Input">
-              <ChartsInput callback={getInputValue} />
-            </Tabs.Tab>
-          </Tabs>
+          <ChartsInput setValues={setValues} />
         </Col>
       </Grid>
     </Fragment>

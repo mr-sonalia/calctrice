@@ -1,13 +1,16 @@
 import { Tabs } from "@mantine/core";
-import { FC } from "react";
 import FeatureWrapper from "../../components/Wrapper/FeatureWrapper";
+import { FC } from "react";
 import BChart from "./BChart";
+import AreaChart from "./AreaChart";
 
 const Charts: FC = () => {
   return (
     <FeatureWrapper title="Charts">
       <Tabs tabPadding="md" grow>
-        <Tabs.Tab label="Area Chart">Area Chart</Tabs.Tab>
+        <Tabs.Tab label="Area Chart">
+          <AreaChart />
+        </Tabs.Tab>
         <Tabs.Tab label="Bar Chart">
           <BChart />
         </Tabs.Tab>

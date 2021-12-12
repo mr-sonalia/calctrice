@@ -3,8 +3,6 @@ import CustomCard from "./CustomCard";
 import cards from "./cardData";
 import { Text, Col, Grid, useMantineTheme } from "@mantine/core";
 
-import classes from "./Card.module.scss";
-
 const CardsContainer: FC = () => {
   const theme = useMantineTheme();
 
@@ -15,7 +13,7 @@ const CardsContainer: FC = () => {
   ));
 
   return (
-    <div className={classes["cards__container"]}>
+    <div style={{ margin: "1rem 3rem 0rem" }}>
       <Text size="xl" weight={600} className={`mar-b-2`}>
         Our Products
       </Text>

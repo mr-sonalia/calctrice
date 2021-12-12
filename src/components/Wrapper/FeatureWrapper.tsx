@@ -1,6 +1,5 @@
 import { Container } from "@mantine/core";
 import { FC } from "react";
-import classes from "./FeatureWrapper.module.scss";
 
 interface Props {
   title: string;
@@ -9,8 +8,10 @@ interface Props {
 const FeatureWrapper: FC<Props> = ({ title, children }) => {
   return (
     <Container size="lg">
-      <h2 className={`${classes.feature__headline}`}>{title}</h2>
-      <main className={classes.feature__body}>{children}</main>
+      <h2 className={`feature__headline`}>{title}</h2>
+      <main className={`feature__body`} style={{ padding: "30px 0px" }}>
+        {children}
+      </main>
     </Container>
   );
 };
