@@ -40,7 +40,6 @@ const ChartsInput: FC<Props> = ({ callback, setValues }) => {
       if (value.length > 0) {
         const data = JSON.parse(`[ ${inputRef.current!.value} ]`);
         setValues({ data, error: null });
-        console.log(data);
         return;
       }
       throw new Error("error");

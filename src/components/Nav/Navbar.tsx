@@ -21,8 +21,6 @@ const Navbar: FC = () => {
   const modalFormSubmitHandler = (event: FormEvent) => {
     event.preventDefault();
     setModalOpen(false);
-
-    console.log(searchQueryRef.current!.value);
   };
 
   useHotkeys([["ctrl+K", () => setModalOpen((prev: boolean) => !prev)]]);
