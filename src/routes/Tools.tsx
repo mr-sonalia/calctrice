@@ -1,6 +1,6 @@
 import { FC, useRef } from "react";
 import { Container, Tabs } from "@mantine/core";
-import models from "./featuresRoutes";
+import models from "./toolsRoutes";
 
 const Features: FC = () => {
   const tabs = models.map((feature) => (

@@ -1,12 +1,17 @@
-import { FC, FormEvent, Fragment, useEffect, useRef, useState } from "react";
-import { Button, Col, Grid, Table, Tabs, Text, Textarea, useMantineTheme } from "@mantine/core";
+import { FC, Fragment, useEffect, useState } from "react";
+import { Col, Grid, Table, Tabs, Text, useMantineTheme } from "@mantine/core";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import { Prism } from "@mantine/prism";
 import InvalidInput from "../../components/Errors/InvalidInput";
+import ChartsInput from "./ChartsInput";
 
 type Data = object[];
+interface Values {
+  data: object[] | null;
+  error: string | null;
+}
 
-const data: Data = [
+const initialData: Data = [
   {
     name: "John Doe",
     income: 1000,
@@ -18,6 +23,7 @@ const data: Data = [
     expenditure: 800,
   },
 ];
+
 const sampleInput: string = `{
   "name": "John Doe", 
   "income": 1000,
@@ -30,49 +36,41 @@ const sampleInput: string = `{
 }
 `;
 
-type Values = object[];
-
 const BChart: FC = () => {
   const theme = useMantineTheme();
-  const inputRef = useRef<HTMLTextAreaElement>(null);
-  const [values, setValues] = useState<Values>(data);
-  const [error, setError] = useState<string | null>(null);
+  const [values, setValues] = useState<Values>({ data: initialData, error: null });
   const [mappedDataKeys, setMappedDataKeys] = useState<any[]>([]);
 
-  const getInputValue = (event: FormEvent): void => {
-    event.preventDefault();
-    try {
-      const parsedData = JSON.parse(`[${inputRef.current!.value}]`);
-      setValues(parsedData);
-      setError(null);
-    } catch (err) {
-      setError("Oops! Seems like input value is incorrect :(");
-    }
+  const getInputValue = (data: object[] | null, error: null | string): void => {
+    if (error && !data) setValues({ data, error });
+    else setValues({ data, error });
   };
 
   useEffect(() => {
-    console.log(values);
-    let length = Object.keys(values[0]).length;
-    const tempMap: any[] = [];
+    // console.log(values);
+    if (values.data) {
+      let length = Object.keys(values.data[0]).length;
+      const tempMap: any[] = [];
 
-    for (let key in values[0]) {
-      if (key !== "name") {
-        tempMap.push(<Bar dataKey={key} fill={theme.colors.blue[length]} />);
-        length--;
+      for (let key in values.data[0]) {
+        if (key !== "name") {
+          tempMap.push(<Bar dataKey={key} fill={theme.colors.blue[length]} />);
+          length--;
+        }
       }
+      setMappedDataKeys(tempMap);
     }
-    setMappedDataKeys(tempMap);
-  }, [values]);
+  }, [theme.colors.blue, values.data]);
 
   return (
     <Fragment>
       <Grid sx={{ height: "100%" }}>
         <Col span={8} sx={{ position: "relative" }}>
-          {error && <InvalidInput errorMessage={error} />}
-          {!error && (
+          {values.error && <InvalidInput errorMessage={values.error} />}
+          {!values.error && (
             <ResponsiveContainer width="100%" height="100%" maxHeight={450}>
               <BarChart
-                data={values}
+                data={values.data ? values.data : undefined}
                 margin={{
                   top: 5,
                   right: 30,
@@ -86,8 +84,6 @@ const BChart: FC = () => {
                 <Tooltip />
                 <Legend style={{ marginTop: "20px" }} />
                 {mappedDataKeys}
-                {/* <Bar dataKey="income" fill={theme.colors.blue[6]} /> */}
-                {/* <Bar dataKey="expenditure" fill={theme.colors.blue[7]} /> */}
               </BarChart>
             </ResponsiveContainer>
           )}
@@ -124,18 +120,7 @@ const BChart: FC = () => {
               </Table>
             </Tabs.Tab>
             <Tabs.Tab label="Chart Data Input">
-              <form className="barchart__form" style={{ display: "grid", gap: "20px" }} onSubmit={getInputValue}>
-                <Textarea
-                  description="Make sure to check: How to use"
-                  autosize
-                  minRows={13}
-                  maxRows={13}
-                  ref={inputRef}
-                />
-                <Button type="submit" variant="light">
-                  Get Data
-                </Button>
-              </form>
+              <ChartsInput callback={getInputValue} />
             </Tabs.Tab>
           </Tabs>
         </Col>

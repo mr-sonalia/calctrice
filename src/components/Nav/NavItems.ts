@@ -14,7 +14,7 @@ class NavItem {
 
 const navItems: NavItem[] = [
   new NavItem("About Us", "/about"),
-  new NavItem("Features", "/features"),
+  new NavItem("Tools", "/tools"),
   new NavItem("Blogs", "/blogs"),
   new NavItem("Other Projects", "/other-projects"),
 ];

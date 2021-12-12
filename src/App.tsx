@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Nav/Navbar";
-import { Home, About, Features, NotFound } from "./routes";
+import { Home, About, Tools, NotFound } from "./routes";
 
 const App: FC = () => {
   return (
@@ -10,7 +10,7 @@ const App: FC = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/features" element={<Features />} />
+        <Route path="/tools" element={<Tools />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
