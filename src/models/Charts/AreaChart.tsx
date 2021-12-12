@@ -96,6 +96,7 @@ const AreaChart: FC = () => {
               fill={theme.colors.blue[length - 1]}
             />
           );
+          length--;
         }
       }
       setMappedDataKeys(tempMap);
